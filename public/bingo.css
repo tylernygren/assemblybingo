@@ -1,0 +1,154 @@
+*{
+  box-sizing: border-box;
+  font-weight: normal;
+}
+
+:root{
+  --font: "Roboto";
+  --board-color: transparent;
+  --column-color: transparent;
+  --cell-color: white;
+  --heading-color: black;
+  --text-color: grey;
+  --highlight-color: #ADFF2F;
+  --button-color: whitesmoke;
+  --button-text-color: black;
+}
+
+button{
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#main{
+  display: block;
+  position: fixed;
+}
+
+.prompt{
+  z-index: 2;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 4px;
+  box-shadow: 0 0 16px 2px grey;
+  background-color: var(--cell-color);
+  font-family: var(--font);
+}
+
+.prompt h1{
+  text-align: center;
+  margin: 1vmax 0;
+  font-size: 4vmax;
+  color: var(--heading-color);
+}
+
+.prompt h2{
+  text-align: center;
+  margin: 1vmax 0;
+  font-size: 2vmax;
+  color: var(--text-color)
+}
+
+.prompt button{
+  display: block;
+  position: relative;
+  min-width: 60%;
+  padding: 2vmax;
+  margin: 4vmax auto;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  font-size: 2vmax;
+}
+
+.prompt button:hover{
+  background-color: var(--highlight-color);
+}
+
+#board{
+  z-index: 1;
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: var(--board-color);
+  border: 2px solid Gainsboro;
+}
+
+.column{
+  display: inline-block;
+  position: relative;
+  float: left;
+  width: 20%;
+  background-color: var(--column-color);
+}
+
+.cell{
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 100%;
+  border: 2px solid Gainsboro;
+  background-color: var(--cell-color);
+  cursor: pointer;
+}
+
+.mark{
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.mark h1{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0px 2px;
+  text-align: center;
+  font-family:  var(--font);
+  color: black;
+  cursor: pointer;
+}
+
+@media only screen and (orientation: portrait){
+
+  #board{
+    width: 95vw;
+  }
+  .cell h1{
+    font-size: 1.75vmax;
+  }
+  .prompt{
+    width: 85vw;
+    padding: 2vw 1vw;
+  }
+}
+
+@media only screen and (orientation: landscape){
+
+  #board{
+    width: 95vh;
+  }
+  .cell h1{
+    font-size: 1.25vmax;
+  }
+  .prompt{
+    width: 85vh;
+    padding: 2vw 1vw;
+  }
+}
